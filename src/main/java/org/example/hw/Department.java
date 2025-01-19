@@ -1,18 +1,19 @@
-package org.example.hw.block1_6_encapsulation.task10;
+package org.example.hw;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
-public class ChangedDepartment {
+public class Department {
     private String name;
-    private ChangedEmployee manager;
-    private List<ChangedEmployee> employees = new ArrayList<>();
+    private Employee manager;
+    private List<Employee> employees = new ArrayList<>();
 
-    public void setManager(ChangedEmployee manager) {
+    public void setManager(Employee manager) {
         if (manager == null) {
             this.manager = null;
             return;
@@ -30,7 +31,7 @@ public class ChangedDepartment {
         }
     }
 
-    public void addEmployee(ChangedEmployee employee) {
+    public void addEmployee(Employee employee) {
         if (employee == null || employees.contains(employee)) {
             return; // Игнорируем null и дубликаты
         }
@@ -42,7 +43,7 @@ public class ChangedDepartment {
         employee.setDepartment(this);
     }
 
-    public void removeEmployee(ChangedEmployee employee) {
+    public void removeEmployee(Employee employee) {
         if (employee == null) {
             return;
         }

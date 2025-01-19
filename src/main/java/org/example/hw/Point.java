@@ -1,4 +1,4 @@
-package org.example.hw.block1_5_methods.task3;
+package org.example.hw;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,5 +1,4 @@
-package org.example.hw.block1_6_encapsulation.task10;
-
+package org.example.hw;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.util.ArrayList;
@@ -11,9 +10,9 @@ import java.util.List;
  */
 @Data
 @NoArgsConstructor
-public class ChangedEmployee {
+public class Employee {
     private String name;
-    private ChangedDepartment department;
+    private Department department;
 
     @Override
     public String toString() {
@@ -28,7 +27,7 @@ public class ChangedEmployee {
         }
     }
 
-    public List<ChangedEmployee> getDepartmentEmployees() {
+    public List<Employee> getDepartmentEmployees() {
         if (department != null) {
             return department.getEmployees();
         }

@@ -1,4 +1,4 @@
-package org.example.hw.block1_5_methods.task3;
+package org.example.hw;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,19 +15,27 @@ public class Line {
     private Point start;
     private Point end;
 
-    // Конструктор для создания линии по двум точкам
+    // для создания линии по двум точкам
     public Line(Point start, Point end) {
         this.start = start;
         this.end = end;
     }
 
-    // Конструктор для создания линии по четырем координатам (x1, y1, x2, y2)
+    // для создания линии по четырем координатам (x1, y1, x2, y2)
     public Line(int x1, int y1, int x2, int y2) {
         this.start = new Point(x1, y1);
         this.end = new Point(x2, y2);
     }
+    // Метод для изменения координат начала линии
+    public void setStart(int x, int y) {
+        this.start = new Point(x, y); // Создаем новую точку
+    }
 
-    // Метод для вычисления длины линии
+    // Метод для изменения координат конца линии
+    public void setEnd(int x, int y) {
+        this.end = new Point(x, y); // Создаем новую точку
+    }
+    // для вычисления длины линии
     public int getLength() {
         int x1 = start.getX();
         int y1 = start.getY();

@@ -1,6 +1,5 @@
-package org.example.hw.block1_6_encapsulation.task1;
+package org.example.hw;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /*

@@ -1,4 +1,4 @@
-package org.example.hw.block1_5_methods.task2;
+package org.example.hw;
 
 /*
 1.5.2 Кот мяукает. Создайте сущность Кот, которая описывается следующим образом:

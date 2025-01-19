@@ -1,7 +1,6 @@
-package org.example.hw.block1_5_methods.task7;
+package org.example.hw;
 
 import lombok.Data;
-import org.example.hw.block1_5_methods.task3.Point;
 
 import java.util.Arrays;
 

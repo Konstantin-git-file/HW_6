@@ -1,4 +1,4 @@
-package org.example.hw.block1_5_methods.task5;
+package org.example.hw;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-public class Fraction {
+public final class Fraction {
     private int numerator;   // Числитель
     private int denominator; // Знаменатель
 

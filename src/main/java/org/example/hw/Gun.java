@@ -1,4 +1,4 @@
-package org.example.hw.block1_5_methods.task1;
+package org.example.hw;
 
 /*
 1.5.1 Пистолет стреляет. Создайте сущность Пистолет, которая описывается следующим образом:
@@ -9,14 +9,15 @@ package org.example.hw.block1_5_methods.task1;
 Создайте пистолет с тремя патронами и выстрелите из него пять раз.
  */
 public class Gun {
-    private int bullets;
+    // По умолчанию пистолет разряжен
+    private int bullets = 0;
+    private final int maxBullets;
 
-    public Gun(int bullets) {
-        this.bullets = bullets;
-    }
-
-    public Gun() {
-        this.bullets = 5;
+    public Gun(int maxBullets) {
+        if (maxBullets <= 0) {
+            throw new IllegalArgumentException("Максимальное количество патронов должно быть положительным.");
+        }
+        this.maxBullets = maxBullets;
     }
 
     public void shoot() {
@@ -26,5 +27,32 @@ public class Gun {
         } else {
             System.out.println("Клац!");
         }
+    }
+
+    public int reload(int bulletsToAdd) {
+        if (bulletsToAdd < 0) {
+            throw new IllegalArgumentException("Количество патронов не может быть отрицательным.");
+        }
+        int totalBullets = bullets + bulletsToAdd;
+        if (totalBullets > maxBullets) {
+            int excess = totalBullets - maxBullets;
+            bullets = maxBullets;
+            return excess; // Возвращаем лишние патроны
+        } else {
+            bullets = totalBullets;
+            return 0; // Лишних патронов нет
+        }
+    }
+
+    // метод для разрядки
+    public int unload() {
+        int remainingBullets = bullets;
+        bullets = 0;
+        return remainingBullets;
+    }
+
+    // заряжен ли пистолет
+    public boolean isLoaded() {
+        return bullets > 0;
     }
 }

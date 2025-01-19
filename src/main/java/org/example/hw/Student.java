@@ -1,19 +1,17 @@
-package org.example.hw.block1_6_encapsulation.task8;
+package org.example.hw;
 
 import lombok.Data;
+
 import java.util.Arrays;
-/*
-1.6.8 Диапазон оценок. Измените сущность Студент из задачи 1.5.6. Необходимо гарантировать, что добавлять Студенту можно только оценки в диапазоне от 2 до 5, при этом у Студента всегда можно узнать список оценок.
-Продемонстрируйте на примерах, что нет способа задать Студенту некорректную оценку.
- */
+
 @Data
-public class ChangedStudent {
+public class Student {
     private String name;
     private int[] grades;
 
-    public ChangedStudent(String name, int... grades) {
+    public Student(String name, int... grades) {
         this.name = name;
-        setGrades(grades);
+        setGrades (grades);
     }
 
     public void setGrades(int[] grades) {
@@ -45,7 +43,7 @@ public class ChangedStudent {
 
     public double getAverageGrade() {
         if (grades == null || grades.length == 0) {
-            return 0.0;
+            return 0.0; // если оценок нет, то 0
         }
         int sum = 0;
         for (int grade : grades) {
@@ -56,14 +54,14 @@ public class ChangedStudent {
 
     public boolean isExcellentStudent() {
         if (grades == null || grades.length == 0) {
-            return false;
+            return false; // если оценок нет, то получается что студент не отличник
         }
         for (int grade : grades) {
             if (grade != 5) {
                 return false;
             }
         }
-        return true;
+        return true; // когда все на 5
     }
 
     @Override

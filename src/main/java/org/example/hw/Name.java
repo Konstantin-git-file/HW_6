@@ -1,34 +1,35 @@
-package org.example.hw.block1_6_encapsulation.task7;
+package org.example.hw;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-//@AllArgsConstructor по условиям по 1.4.5.
-public class Name {
+public final class Name {
     private String lastName;
     private String firstName;
     private String middleName;
 
-    // Конструктор для создания имени только с личным именем
     public Name(String firstName) {
         this.firstName = firstName;
         this.lastName = null;
         this.middleName = null;
     }
 
-    // Конструктор для создания имени с личным именем и фамилией
     public Name(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleName = null;
     }
 
-    // Конструктор для создания имени с личным именем, фамилией и отчеством
     public Name(String firstName, String lastName, String middleName) {
-        this.firstName = firstName;
+        if ((firstName == null || firstName.isEmpty()) &&
+                (lastName == null || lastName.isEmpty()) &&
+                (middleName == null || middleName.isEmpty())) {
+            throw new IllegalArgumentException("Хотя бы один параметр (фамилия, имя или отчество) должен быть не пустым.");
+        }
         this.lastName = lastName;
+        this.firstName = firstName;
         this.middleName = middleName;
     }
 
